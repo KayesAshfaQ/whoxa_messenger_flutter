@@ -65,7 +65,7 @@ dependencies:
   carousel_slider: ^2.2.1
   screenshot:
   google_fonts: ^1.1.1
-  agora_rtc_engine: ^4.0.2
+  agora_rtc_engine: ^4.2.2
   connectivity: ^3.0.6
   rflutter_alert: ^1.0.3
   percent_indicator: ^2.1.9+1

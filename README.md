@@ -4,12 +4,10 @@ A new Flutter application.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+## flutter version - [2.8 - stable]
 
-A few resources to get you started if this is your first Flutter project:
+[Original Script](https://codecanyon.net/item/whatsapp-clone-flutter-app-android-and-ios/30289105)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
