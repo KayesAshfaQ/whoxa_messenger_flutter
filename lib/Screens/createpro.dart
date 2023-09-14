@@ -37,7 +37,7 @@ class _CreateProState extends State<CreatePro> {
   void initState() {
     _getToken();
     FirebaseAuth.instance.currentUser().then((user) {
-      print(user.uid);
+      print("USER-ID ::: "+user.uid);
       setState(() {
         userId = user.uid;
       });

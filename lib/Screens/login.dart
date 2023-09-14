@@ -50,45 +50,48 @@ class _LoginState extends State<LoginScreen> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-          backgroundColor: Colors.black,
-          body: LayoutBuilder(builder: (context, constraint) {
+        backgroundColor: Colors.black,
+        body: LayoutBuilder(
+          builder: (context, constraint) {
             return Column(
               children: [
                 Expanded(
                   child: SingleChildScrollView(
                     child: ConstrainedBox(
-                        constraints:
-                            BoxConstraints(minHeight: constraint.maxHeight),
-                        child: IntrinsicHeight(
-                          child: Stack(
-                            children: <Widget>[
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 0),
-                                    child: Center(
-                                        child: Image.network(
+                      constraints:
+                          BoxConstraints(minHeight: constraint.maxHeight),
+                      child: IntrinsicHeight(
+                        child: Stack(
+                          children: <Widget>[
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 0),
+                                  child: Center(
+                                    child: Image.network(
                                       appLogo,
                                       height: 100,
-                                    )),
+                                    ),
                                   ),
-                                  Container(
-                                    height: 50,
-                                  ),
-                                  _emailTextfield(context),
-                                  _passwordTextfield(context),
-                                  // _forgotPassword(),
-                                  _loginButton(context),
-                                ],
-                              ),
-                              isLoading == true
-                                  ? Center(child: loader())
-                                  : Container(),
-                            ],
-                          ),
-                        )),
+                                ),
+                                Container(
+                                  height: 50,
+                                ),
+                                _emailTextfield(context),
+                                _passwordTextfield(context),
+                                // _forgotPassword(),
+                                _loginButton(context),
+                              ],
+                            ),
+                            isLoading == true
+                                ? Center(child: loader())
+                                : Container(),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ),
                 Container(
@@ -98,24 +101,27 @@ class _LoginState extends State<LoginScreen> {
                 _dontHaveAnAccount(context),
               ],
             );
-          })),
+          },
+        ),
+      ),
     );
   }
 
   Widget _emailTextfield(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
-        child: CustomtextField(
-          focusNode: emailNode,
-          textInputAction: TextInputAction.next,
-          controller: emailController,
-          hintText: 'Enter username',
-          prefixIcon: Icon(
-            Icons.person,
-            size: 30.0,
-            color: appColorBlue,
-          ),
-        ));
+      padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
+      child: CustomtextField(
+        focusNode: emailNode,
+        textInputAction: TextInputAction.next,
+        controller: emailController,
+        hintText: 'Enter username',
+        prefixIcon: Icon(
+          Icons.person,
+          size: 30.0,
+          color: appColorBlue,
+        ),
+      ),
+    );
   }
 
   Widget _passwordTextfield(BuildContext context) {

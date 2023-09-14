@@ -55,6 +55,7 @@ import 'package:flutterwhatsappclone/Screens/widgets/thumbnailImage.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:swipeable/swipeable.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+import '../constatnt/Constant.dart';
 
 // ignore: must_be_immutable
 class Chat extends StatefulWidget {
@@ -3627,7 +3628,7 @@ class _ChatState extends State<Chat> {
                                   GiphyGif gif = await GiphyGet.getGif(
                                     context: context,
                                     apiKey:
-                                        "QUnQNPmTehyhBAwPG7WuGCz4HLLZB0zQ", //YOUR API KEY HERE
+                                        GIPHY_API_KEY, //YOUR API KEY HERE
                                     lang: GiphyLanguage.spanish,
                                   );
 
@@ -4012,7 +4013,7 @@ class _ChatState extends State<Chat> {
                         GiphyGif gif = await GiphyGet.getGif(
                           context: context,
                           apiKey:
-                              "QUnQNPmTehyhBAwPG7WuGCz4HLLZB0zQ", //YOUR API KEY HERE
+                              GIPHY_API_KEY, //YOUR API KEY HERE
                           lang: GiphyLanguage.spanish,
                         );
 

@@ -34,7 +34,7 @@ Future main() async {
             // ANIMATED_SPLASH: (BuildContext context) => new SplashScreen(),
           },
         ),
-      ));
+      ),);
     },
   );
 }

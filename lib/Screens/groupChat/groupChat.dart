@@ -22,6 +22,7 @@ import 'package:flutterwhatsappclone/Screens/videoCall/pickup_layout.dart';
 import 'package:flutterwhatsappclone/Screens/videoPlayerScreen.dart';
 import 'package:flutterwhatsappclone/Screens/videoView.dart';
 import 'package:flutterwhatsappclone/Screens/widgets/player_widget.dart';
+import 'package:flutterwhatsappclone/constatnt/Constant.dart';
 import 'package:flutterwhatsappclone/helper/sizeconfig.dart';
 import 'package:flutterwhatsappclone/models/starModel.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
@@ -3527,7 +3528,7 @@ class _ChatState extends State<GroupChat> {
                                 GiphyGif gif = await GiphyGet.getGif(
                                   context: context,
                                   apiKey:
-                                      "QUnQNPmTehyhBAwPG7WuGCz4HLLZB0zQ", //YOUR API KEY HERE
+                                      GIPHY_API_KEY, //YOUR API KEY HERE
                                   lang: GiphyLanguage.spanish,
                                 );
 
@@ -4130,7 +4131,7 @@ class _ChatState extends State<GroupChat> {
                         GiphyGif gif = await GiphyGet.getGif(
                           context: context,
                           apiKey:
-                              "QUnQNPmTehyhBAwPG7WuGCz4HLLZB0zQ", //YOUR API KEY HERE
+                              GIPHY_API_KEY, //YOUR API KEY HERE
                           lang: GiphyLanguage.spanish,
                         );
 

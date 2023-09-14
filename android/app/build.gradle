@@ -41,6 +41,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.flutter.whoxaNew"
         minSdkVersion 23
+        //noinspection ExpiredTargetSdkVersion
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -62,11 +63,12 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
    }
    buildTypes {
        release {
-           signingConfig signingConfigs.release
-           minifyEnabled true
-           useProguard true
-
-           proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+           signingConfig signingConfigs.debug
+//           signingConfig signingConfigs.release
+//           minifyEnabled true
+//           useProguard true
+//
+//           proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
        }
    }
 
@@ -83,6 +85,16 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:17.2.0'
     implementation 'com.google.firebase:firebase-auth:19.2.0'
     implementation 'com.google.firebase:firebase-messaging:20.1.4'
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
+    implementation 'com.google.firebase:firebase-firestore:21.4.3'
+    // firebase bom
+//    implementation platform('com.google.firebase:firebase-bom:28.4.0')
+//    implementation 'com.google.firebase:firebase-crashlytics:17.0.0-beta01'
+//    implementation 'com.google.firebase:firebase-perf:19.0.8'
+//    implementation 'com.google.firebase:firebase-config:19.1.4'
+//    implementation 'com.google.firebase:firebase-appindexing:19.1.0'
+//    implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
+//    implementation 'com.google.firebase:firebase-ml-vision-image-label-model:19.0.0'
     
 }
 apply plugin: 'com.google.gms.google-services'

@@ -15,7 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:developer' as developer;
 
 String appName = 'Whoxa';
-String appLogo = '';
+String appLogo = 'https://via.placeholder.com/200x200';
 String userVisibility = 'On';
 List<CallModal> callList;
 bool passCodeStatus = false;

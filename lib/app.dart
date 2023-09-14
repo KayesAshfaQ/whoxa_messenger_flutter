@@ -43,6 +43,7 @@ class AppThemes {
 
 class App extends StatefulWidget {
   final SharedPreferences prefs;
+
   App(this.prefs);
 
   @override
@@ -56,6 +57,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
   final passNode = FocusNode();
 
   bool isLoading = true;
+
   @override
   void initState() {
     super.initState();
@@ -89,13 +91,18 @@ class _AppState extends State<App> with WidgetsBindingObserver {
     if (state == AppLifecycleState.resumed) {
       if (userVisibility != 'Off') {
         FirebaseAuth.instance.currentUser().then((user) {
-          if (user != null)
+          if (user != null) {
+            print('user : ${user.uid}');
             _database.reference().child("user").child(user.uid).update({
               "status": "Online",
             });
+          }
         });
 
         FirebaseAuth.instance.currentUser().then((user) {
+          print('user uid : ${user.uid}');
+          print('user mail : ${user.email}');
+
           Firestore.instance
               .collection('users')
               .document(user.uid)
@@ -103,7 +110,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
         });
       }
     } else {
-      if (userID != '')
+      if (userID != '') {
         FirebaseAuth.instance.currentUser().then((user) {
           if (user != null)
             // setState(() {
@@ -122,6 +129,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
 
           // });
         });
+      }
 
       FirebaseAuth.instance.currentUser().then((user) {
         Firestore.instance.collection('users').document(user.uid).updateData(
@@ -195,22 +203,22 @@ class _AppState extends State<App> with WidgetsBindingObserver {
     }
   }
 
-  // checkUser() async {
-  //   FirebaseAuth.instance.currentUser().then((user) {
-  //     if (user != null)
-  //       _database
-  //           .reference()
-  //           .child('user')
-  //           .child(user.uid)
-  //           .once()
-  //           .then((peerData) {
-  //         setState(() {
-  //           passCodeStatus = peerData.value['passCodeStatus'];
-  //         });
-  //       });
-  //   });
-  //   setState(() {
-  //     isLoading = false;
-  //   });
-  // }
+// checkUser() async {
+//   FirebaseAuth.instance.currentUser().then((user) {
+//     if (user != null)
+//       _database
+//           .reference()
+//           .child('user')
+//           .child(user.uid)
+//           .once()
+//           .then((peerData) {
+//         setState(() {
+//           passCodeStatus = peerData.value['passCodeStatus'];
+//         });
+//       });
+//   });
+//   setState(() {
+//     isLoading = false;
+//   });
+// }
 }

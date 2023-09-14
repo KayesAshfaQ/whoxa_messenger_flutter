@@ -20,21 +20,26 @@ class _IntroState extends State<Intro> {
   }
 
   Future permission() async {
-    Map<Permission, PermissionStatus> statuses = await [
-      Permission.contacts,
-      Permission.phone,
-      Permission.location,
-      Permission.storage,
-    ].request();
-    print(statuses[Permission.location]);
+    try {
+      Map<Permission, PermissionStatus> statuses = await [
+        Permission.contacts,
+        Permission.phone,
+        Permission.location,
+        Permission.storage,
+      ].request();
+      print(statuses[Permission.location]);
+    } catch (e) {
+      print('PERMISSION ::: ${e.message}');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        body: LayoutBuilder(builder: (context, constraint) {
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body: LayoutBuilder(
+        builder: (context, constraint) {
           return SingleChildScrollView(
             child: ConstrainedBox(
                 constraints: BoxConstraints(minHeight: constraint.maxHeight),
@@ -85,11 +90,14 @@ class _IntroState extends State<Intro> {
                           },
                           color: appColorBlue,
                           textColor: Colors.white,
-                          child: Text("Get started".toUpperCase().tr,
-                              style: TextStyle(
-                                  fontSize: SizeConfig.blockSizeHorizontal * 3,
-                                  fontFamily: "MontserratBold",
-                                  color: appColorWhite)),
+                          child: Text(
+                            "Get started".toUpperCase().tr,
+                            style: TextStyle(
+                              fontSize: SizeConfig.blockSizeHorizontal * 3,
+                              fontFamily: "MontserratBold",
+                              color: appColorWhite,
+                            ),
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -99,6 +107,8 @@ class _IntroState extends State<Intro> {
                   ),
                 )),
           );
-        }));
+        },
+      ),
+    );
   }
 }

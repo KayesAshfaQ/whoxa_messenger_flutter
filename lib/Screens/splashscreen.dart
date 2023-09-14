@@ -42,7 +42,8 @@ class SplashScreenState extends State<SplashScreen>
     super.initState();
     getUser();
     permissionAcessPhone();
-    _generalSetting();
+    // _generalSetting();
+    startTime();
     animationController = new AnimationController(
         vsync: this, duration: new Duration(seconds: 4));
     animation =

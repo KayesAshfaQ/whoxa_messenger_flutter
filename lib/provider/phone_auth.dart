@@ -167,6 +167,9 @@ class PhoneAuthDataProvider with ChangeNotifier {
     FireBase.auth
         .signInWithCredential(_authCredential)
         .then((AuthResult result) async {
+      print("UID >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" +
+          result.user.uid.toString()+' '+result.user.phoneNumber.toString());
+
       _database
           .reference()
           .child('user')
